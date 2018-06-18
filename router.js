@@ -1,6 +1,6 @@
-let express = require('express');
-let apiRouter = express.Router();
-let homepageCtrl = require('./controllers/homepage');
+var express = require('express');
+var apiRouter = express.Router();
+var homepageCtrl = require('./controllers/homepage');
 
 //Get exclusive products
 apiRouter.route('/homepage/exclusive').get(homepageCtrl.getExclusives);
