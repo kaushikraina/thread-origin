@@ -20,7 +20,7 @@ apiRouter.route('/media').get(homepageCtrl.getMediaURL);
 apiRouter.route('/product/:sku').get(productCtrl.getProduct);
 
 //Search products by category
-apiRouter.route('/product/:category').get(productCtrl.getCategoryProducts);
+apiRouter.route('/product/all/:category').get(productCtrl.getCategoryProducts);
 
 //Get categories
 apiRouter.route('/categories').get(categoryCtrl.getCategories);
