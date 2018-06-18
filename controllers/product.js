@@ -49,7 +49,7 @@ exports.getProduct = function(req,res){
         }
     }).then(function(response) {
                 var token = response.body.replace(/"/g,'');
-                requestify.request(constant.SEARCH_PRODUCT+req.params.category,{
+                requestify.request(constant.SEARCH_PRODUCT+req.params.category+constant.CONFIGURABLE_PRODUCTS,{
                     method: 'GET',
                     headers:{
                         'authorization' : 'Bearer '+token,
@@ -69,6 +69,6 @@ exports.getProduct = function(req,res){
 
 
 
-  
+
 
 
