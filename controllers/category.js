@@ -2,7 +2,7 @@ var request = require('request');
 var requestify = require('requestify'); 
 var constant = require('../config');
 
-exports.getExclusives = function(req,res){
+exports.getCategories = function(req,res){
     requestify.request(constant.ADMIN_URL,{
         method: 'POST',
         body:{
@@ -16,7 +16,7 @@ exports.getExclusives = function(req,res){
         }
     }).then(function(response) {
                 var token = response.body.replace(/"/g,'');
-                requestify.request(constant.EXCLUSIVE_URL,{
+                requestify.request(constant.CATEGORIES_URL,{
                     method: 'GET',
                     headers:{
                         'authorization' : 'Bearer '+token,
@@ -35,13 +35,7 @@ exports.getExclusives = function(req,res){
   };
 
 
-exports.getMediaURL= function(req,res){
-    res.send(constant.MEDIA_BASE_URL);
-}  
-
-
-
-exports.getCamp1 = function(req,res){
+  exports.getCategoryCamp = function(req,res){
     requestify.request(constant.ADMIN_URL,{
         method: 'POST',
         body:{
@@ -55,7 +49,7 @@ exports.getCamp1 = function(req,res){
         }
     }).then(function(response) {
                 var token = response.body.replace(/"/g,'');
-                requestify.request(constant.HOME_CAMP_1,{
+                requestify.request(constant.CATEGORY_CAMP_1,{
                     method: 'GET',
                     headers:{
                         'authorization' : 'Bearer '+token,
@@ -71,37 +65,10 @@ exports.getCamp1 = function(req,res){
     .catch(function(err){
         res.send(err);
     });
-  };
+  };  
 
 
-  exports.getCamp2 = function(req,res){
-    requestify.request(constant.ADMIN_URL,{
-        method: 'POST',
-        body:{
-                
-                "username" : constant.ADMIN_USERNAME,
-	            "password" : constant.ADMIN_PASSWORD
-        
-        },
-        headers:{
-            'content-type' : 'application/json; charset=utf-8'
-        }
-    }).then(function(response) {
-                var token = response.body.replace(/"/g,'');
-                requestify.request(constant.HOME_CAMP_2,{
-                    method: 'GET',
-                    headers:{
-                        'authorization' : 'Bearer '+token,
-                        'content-type' : 'application/json; charset=utf-8'
-                    }
-                }).then(function(response) {
-                            res.send(response.body);                            
-                        })
-                .catch(function(err){
-                    res.send(err);
-                });
-            })
-    .catch(function(err){
-        res.send(err);
-    });
-  }; 
+  
+
+
+  
