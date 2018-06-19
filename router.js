@@ -68,7 +68,7 @@ apiRouter.route('/account/validate').post(accountCtrl.validateAccount);
 /**************     USER ACCOUNT RELETED FUNCTIONS API's  ************/
 
 //Add item to a cart
-apiRouter.route('/cart').post(userCtrl.addToCart);
+apiRouter.route('/user/cart').post(userCtrl.addToCart);
 
 //Get cart items
 //apiRouter.route('/cart')

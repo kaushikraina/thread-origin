@@ -19,7 +19,7 @@ exports.addToCart = function(req,res){
                         var id = response.body;
                     else
                         var id = response.body.id;  
-                        
+
                     requestify.request(constant.ADD_TO_CART,{
                         method: 'POST',
                         headers:{
@@ -29,9 +29,24 @@ exports.addToCart = function(req,res){
                         body : {
                             "cart_item": {
                                 "quote_id": parseInt(id),
+                                "product_type" : "configurable",
                                 "sku": req.body.sku,
-                                "qty": parseInt(req.body.quantity)
-                            }
+                                "qty": req.body.qty,
+                                "product_option": {
+                                    "extension_attributes": {
+                                    "configurable_item_options" : [
+                                        {
+                                            "option_id": req.body.color_id, 
+                                            "option_value": req.body.color_value
+                                        },
+                                        {
+                                            "option_id": req.body.size_id, 
+                                            "option_value": req.body.size_value
+                                        }
+                                     ]
+                                   }
+                                 }
+                                }
                         }
                     }).then(function(response) {
                                 res.send(response.body);                            
