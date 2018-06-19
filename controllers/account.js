@@ -85,8 +85,8 @@ exports.addAccount = function(req,res){
     requestify.request(constant.AUTHENTICATE_USER,{
         method: 'POST',
         body:{                
-                "username" : body.req.email,
-	            "password" : body.req.password        
+                "username" : req.body.email,
+	            "password" : req.body.password        
         },
         headers:{
             'content-type' : 'application/json; charset=utf-8'
