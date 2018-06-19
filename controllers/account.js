@@ -92,15 +92,20 @@ exports.addAccount = function(req,res){
             'content-type' : 'application/json; charset=utf-8'
         }
     }).then(function(response) {
-                if(response.statusCode == 401)
+                if(response.code == 401)
                     res.json({success : "false"});
                 else
-                    res.json({success : "true"});    
+                    res.json({success : response.body.replace(/"/g,'')});    
             })
     .catch(function(err){
-        res.send(err);
+        if(err.code == 401)
+        res.json({success : "false"});
     });
-  };
+  
+};
+
+
+
 
 
 

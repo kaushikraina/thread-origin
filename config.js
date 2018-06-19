@@ -15,6 +15,11 @@ var config = {
     ADD_ACCOUNT : "http://13.232.73.164/magento/rest/V1/customers",
     GET_ACCOUNT : "http://13.232.73.164/magento/rest/V1/customers/",
     AUTHENTICATE_USER : "http://13.232.73.164/magento/rest/V1/integration/customer/token",
+    USER_CART : "http://13.232.73.164/magento/rest/V1/carts/mine",
+    ADD_TO_CART : "http://13.232.73.164/magento/rest/V1/carts/mine/items",
+    PRODUCT_VARIANTS : "http://13.232.73.164/magento/rest/V1/configurable-products/",
+    PRODUCT_COLORS : "http://13.232.73.164/magento/rest/V1/products/attributes?searchCriteria[filter_groups][0][filters][0][field]=attribute_code&searchCriteria[filter_groups][0][filters][0][value]=color",
+    PRODUCT_SIZES : "http://13.232.73.164/magento/rest/V1/products/attributes?searchCriteria[filter_groups][0][filters][0][field]=attribute_code&searchCriteria[filter_groups][0][filters][0][value]=size",
 }
 
 module.exports = config;

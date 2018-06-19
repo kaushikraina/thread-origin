@@ -70,5 +70,101 @@ exports.getProduct = function(req,res){
 
 
 
+ exports.getProductVariant = function(req,res){
+    requestify.request(constant.ADMIN_URL,{
+        method: 'POST',
+        body:{
+                
+                "username" : constant.ADMIN_USERNAME,
+	            "password" : constant.ADMIN_PASSWORD
+        
+        },
+        headers:{
+            'content-type' : 'application/json; charset=utf-8'
+        }
+    }).then(function(response) {
+                var token = response.body.replace(/"/g,'');
+                requestify.request(constant.PRODUCT_VARIANTS+req.params.sku+'/children',{
+                    method: 'GET',
+                    headers:{
+                        'authorization' : 'Bearer '+token,
+                        'content-type' : 'application/json; charset=utf-8'
+                    }
+                }).then(function(response) {
+                            res.send(response.body);                            
+                        })
+                .catch(function(err){
+                    res.send(err);
+                });
+            })
+    .catch(function(err){
+        res.send(err);
+    });
+  };  
 
 
+
+exports.getColor = function(req,res){
+    requestify.request(constant.ADMIN_URL,{
+        method: 'POST',
+        body:{
+                
+                "username" : constant.ADMIN_USERNAME,
+	            "password" : constant.ADMIN_PASSWORD
+        
+        },
+        headers:{
+            'content-type' : 'application/json; charset=utf-8'
+        }
+    }).then(function(response) {
+                var token = response.body.replace(/"/g,'');
+                requestify.request(constant.PRODUCT_COLORS,{
+                    method: 'GET',
+                    headers:{
+                        'authorization' : 'Bearer '+token,
+                        'content-type' : 'application/json; charset=utf-8'
+                    }
+                }).then(function(response) {
+                            res.send(response.body);                            
+                        })
+                .catch(function(err){
+                    res.send(err);
+                });
+            })
+    .catch(function(err){
+        res.send(err);
+    });
+};   
+
+
+exports.getSize = function(req,res){
+    requestify.request(constant.ADMIN_URL,{
+        method: 'POST',
+        body:{
+                
+                "username" : constant.ADMIN_USERNAME,
+	            "password" : constant.ADMIN_PASSWORD
+        
+        },
+        headers:{
+            'content-type' : 'application/json; charset=utf-8'
+        }
+    }).then(function(response) {
+                var token = response.body.replace(/"/g,'');
+                requestify.request(constant.PRODUCT_SIZES,{
+                    method: 'GET',
+                    headers:{
+                        'authorization' : 'Bearer '+token,
+                        'content-type' : 'application/json; charset=utf-8'
+                    }
+                }).then(function(response) {
+                            res.send(response.body);                            
+                        })
+                .catch(function(err){
+                    res.send(err);
+                });
+            })
+    .catch(function(err){
+        res.send(err);
+    });
+};

@@ -4,7 +4,7 @@ var homepageCtrl = require('./controllers/homepage');
 var productCtrl = require('./controllers/product');
 var categoryCtrl = require('./controllers/category');
 var accountCtrl = require('./controllers/account');
-
+var userCtrl = require('./controllers/user');
 
 /************     HOMEPAGE API'S     ********/
 
@@ -34,7 +34,14 @@ apiRouter.route('/product/:sku').get(productCtrl.getProduct);
 //Search products by category
 apiRouter.route('/product/all/:category').get(productCtrl.getCategoryProducts);
 
+//Get product variant information
+apiRouter.route('/product/variants/:sku').get(productCtrl.getProductVariant);
 
+//Get all color
+apiRouter.route('/products/colors').get(productCtrl.getColor);
+
+//Get all sizes
+apiRouter.route('/products/sizes').get(productCtrl.getSize);
 
 
 /************     CATEGORY API'S     ********/
@@ -46,7 +53,6 @@ apiRouter.route('/categories').get(categoryCtrl.getCategories);
 apiRouter.route('/category/campaign').get(categoryCtrl.getCategoryCamp);
 
 
-
 /************     ACCOUNT API'S     ********/
 
 //Add an account
@@ -55,8 +61,16 @@ apiRouter.route('/account').post(accountCtrl.addAccount);
 //Get customer account 
 apiRouter.route('/account/:id').get(accountCtrl.getAccount);
 
-//Check user credentials
+//Check user credentials (return customer token)
 apiRouter.route('/account/validate').post(accountCtrl.validateAccount);
 
+
+/**************     USER ACCOUNT RELETED FUNCTIONS API's  ************/
+
+//Add item to a cart
+apiRouter.route('/cart').post(userCtrl.addToCart);
+
+//Get cart items
+//apiRouter.route('/cart')
 
 module.exports = apiRouter;

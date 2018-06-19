@@ -70,5 +70,4 @@ exports.getCategories = function(req,res){
 
   
 
-
   
