@@ -52,6 +52,13 @@ apiRouter.route('/categories').get(categoryCtrl.getCategories);
 //Get category page campaign
 apiRouter.route('/category/campaign').get(categoryCtrl.getCategoryCamp);
 
+//Sort Category products based on color
+apiRouter.route('/category/color/:value').get(categoryCtrl.sortCategoryColor);
+
+//Sort Category products based on size
+apiRouter.route('/category/size/:value').get(categoryCtrl.sortCategorySize);
+
+
 
 /************     ACCOUNT API'S     ********/
 
@@ -71,6 +78,6 @@ apiRouter.route('/account/validate').post(accountCtrl.validateAccount);
 apiRouter.route('/user/cart').post(userCtrl.addToCart);
 
 //Get cart items
-//apiRouter.route('/cart')
+apiRouter.route('/user/cart').get(userCtrl.getCart);
 
 module.exports = apiRouter;
