@@ -31,17 +31,17 @@ exports.addToCart = function(req,res){
                                 "quote_id": parseInt(id),
                                 "product_type" : "configurable",
                                 "sku": req.body.sku,
-                                "qty": req.body.qty,
+                                "qty": parseInt(req.body.qty),
                                 "product_option": {
                                     "extension_attributes": {
                                     "configurable_item_options" : [
                                         {
-                                            "option_id": req.body.color_id, 
-                                            "option_value": req.body.color_value
+                                            "option_id": parseInt(req.body.color_id), 
+                                            "option_value": parseInt(req.body.color_value)
                                         },
                                         {
-                                            "option_id": req.body.size_id, 
-                                            "option_value": req.body.size_value
+                                            "option_id": parseInt(req.body.size_id), 
+                                            "option_value": parseInt(req.body.size_value)
                                         }
                                      ]
                                    }
@@ -52,7 +52,7 @@ exports.addToCart = function(req,res){
                                 res.send(response.body);                            
                             })
                     .catch(function(err){
-                        res.send(err);
+                        res.send(err.body);
                     });
                 })
         .catch(function(err){
@@ -95,11 +95,11 @@ exports.getCart = function(req,res){
                                 res.send(response.body);                            
                             })
                     .catch(function(err){
-                        res.send(err);
+                        res.send(err.body);
                     });
                 })
         .catch(function(err){
-            res.send(err);
+            res.send(err.body);
         });
     }
     else
