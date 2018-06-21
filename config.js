@@ -1,4 +1,4 @@
-var  MAIN_URL = 'http://13.126.252.91';
+var  MAIN_URL = 'http://13.127.81.82';
 
 var config = {
 
