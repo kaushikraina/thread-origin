@@ -53,7 +53,7 @@ _RESPONSE_ `200 OK`
 
 ### GET USER CART ITEMS
 
-_GET_  
+_GET_  `/api/user/cart`
 
 - Require user `token`
 
