@@ -15,12 +15,13 @@ exports.addToCart = function(req,res){
                 'authorization' : token
             }
         }).then(function(response) {
+                    var id = '';
                     if(response.body.id == null)
-                        var id = response.body;
+                        id = response.body;
                     else
-                        var id = response.body.id;  
+                        id = response.body.id;  
 
-                    requestify.request(constant.ADD_TO_CART,{
+                        requestify.request(constant.ADD_TO_CART,{
                         method: 'POST',
                         headers:{
                             'authorization' : token,
@@ -28,7 +29,7 @@ exports.addToCart = function(req,res){
                         },
                         body : {
                             "cart_item": {
-                                "quote_id": parseInt(id),
+                                "quote_id": parseInt(id.replace(/"/g,'')),
                                 "product_type" : "configurable",
                                 "sku": req.body.sku,
                                 "qty": parseInt(req.body.qty),
