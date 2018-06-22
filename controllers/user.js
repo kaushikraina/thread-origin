@@ -272,10 +272,7 @@ exports.addToWishlist = function(req,res){
   };
 
 
-
-
-
-  exports.updateWishlist = function(req,res){
+exports.updateWishlist = function(req,res){
 
     if(req.headers.authorization != null){
 

@@ -29,8 +29,7 @@ exports.addAccount = function(req,res){
                             "lastname" : req.body.lastname,
                             "storeId" : 1,
                             "websiteId" : 1
-                        },
-                        
+                        },                        
                         "password" : req.body.password
                     }
                 }).then(function(response) {

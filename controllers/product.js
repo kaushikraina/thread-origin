@@ -91,7 +91,10 @@ exports.getProduct = function(req,res){
                         'content-type' : 'application/json; charset=utf-8'
                     }
                 }).then(function(response) {
-                            res.send(response.body);                            
+                            res.send(response.body); 
+                            for(var attributename in response.body){
+                                console.log(response.body[attributename]);
+                            }                        
                         })
                 .catch(function(err){
                     res.send(err);
@@ -100,7 +103,7 @@ exports.getProduct = function(req,res){
     .catch(function(err){
         res.send(err);
     });
-  };  
+};  
 
 
 
