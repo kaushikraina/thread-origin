@@ -87,6 +87,21 @@ _RESPONSE_ `200 OK`
 ```
 
 
+### REMOVE CART ITEM
+
+_GET_  `/api/user/cart/:id`
+
+- `id` is `item_id`
+
+_RESPONSE_ `200 OK`
+
+```
+true
+
+```
+
+
+
 
 
 ### ADD WISHLIST ITEM
