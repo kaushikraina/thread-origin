@@ -86,3 +86,68 @@ _RESPONSE_ `200 OK`
 
 ```
 
+
+
+
+### ADD WISHLIST ITEM
+
+_GET_  `/api/user/wishlist/add/:product`
+
+- `product` is product id
+
+_RESPONSE_ `200 OK`
+
+
+```
+[
+    {
+        "message": "Item added to wishlist.",
+        "status": true
+    }
+]
+
+```
+
+
+### GET WISHLIST
+
+_GET_ `/api/user/wishlist`
+
+_REPONSE_ `200 OK`
+
+```
+[
+    1,
+    [
+        {
+            "wishlist_item_id": "8",
+            "wishlist_id": "1",
+            "product_id": "1",
+            "qty": "1.0000",
+            "product_name": "Robe Chemise Harvard-Black-Extra Small",
+            "name": "Robe Chemise Harvard-Black-Extra Small",
+            "price": "2499.0000"
+        }
+    ]
+]
+
+```
+
+
+### DELETE WISHLIST ITEM
+
+_GET_ `/api//user/wishlist/delete/:id`
+
+- `id` is wishlist_item_id
+
+_RESPONSE_ `200 OK`
+
+```
+[
+    {
+        "message": " Item has been removed from wishlist .",
+        "status": true
+    }
+]
+
+```

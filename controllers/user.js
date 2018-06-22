@@ -109,3 +109,213 @@ exports.getCart = function(req,res){
   };
 
 
+
+  exports.removeCartItem = function(req,res){
+
+    if(req.headers.authorization != null){
+        
+        var token = 'Bearer '+req.headers.authorization;
+
+        requestify.request(constant.USER_CART,{
+            method: 'POST',
+            headers:{
+                'content-type' : 'application/json; charset=utf-8',
+                'authorization' : token
+            }
+        }).then(function(response) {
+                    if(response.body.id == null)
+                        var id = response.body;
+                    else
+                        var id = response.body.id;  
+
+                    requestify.request(constant.DELETE_CART_ITEM+req.params.id,{
+                        method: 'DELETE',
+                        headers:{
+                            'authorization' : token,
+                            'content-type' : 'application/json; charset=utf-8'
+                        }
+                    }).then(function(response) {
+                                res.send(response.body);                            
+                            })
+                    .catch(function(err){
+                        res.send(err.body);
+                    });
+                })
+        .catch(function(err){
+            res.send(err.body);
+        });
+    }
+    else
+        res.send({error : "requires user token"});
+
+  };
+
+
+exports.getOrderDetails = function(req,res){
+    requestify.request(constant.ADMIN_URL,{
+        method: 'POST',
+        body:{
+                
+                "username" : constant.ADMIN_USERNAME,
+	            "password" : constant.ADMIN_PASSWORD
+        
+        },
+        headers:{
+            'content-type' : 'application/json; charset=utf-8'
+        }
+    }).then(function(response) {
+                var token = response.body.replace(/"/g,'');
+                requestify.request(constant.ORDER_DETAILS+req.params.id,{
+                    method: 'GET',
+                    headers:{
+                        'authorization' : 'Bearer '+token,
+                        'content-type' : 'application/json; charset=utf-8'
+                    }
+                }).then(function(response) {
+                            res.send(response.body);                            
+                        })
+                .catch(function(err){
+                    res.send(err);
+                });
+            })
+    .catch(function(err){
+        res.send(err);
+    });
+};   
+
+
+
+exports.addToWishlist = function(req,res){
+
+    if(req.headers.authorization != null){
+
+        var token = 'Bearer '+req.headers.authorization;
+
+        requestify.request(constant.USER_CART,{
+            method: 'POST',
+            headers:{
+                'content-type' : 'application/json; charset=utf-8',
+                'authorization' : token
+            }
+        }).then(function(response) {
+                    var id = '';
+                    if(response.body.id == null)
+                        id = response.body;
+                    else
+                        id = response.body.id;  
+
+                        requestify.request(constant.ADD_WISHLIST+req.params.product,{
+                        method: 'POST',
+                        headers:{
+                            'authorization' : token,
+                            'content-type' : 'application/json; charset=utf-8'
+                        }
+                    }).then(function(response) {
+                                res.send(response.body);                            
+                            })
+                    .catch(function(err){
+                        res.send(err.body);
+                    });
+                })
+        .catch(function(err){
+            res.send(err);
+        });
+    }
+
+    else
+        res.send({error : "requires user token"});
+
+  };
+
+
+
+  exports.getWishlist = function(req,res){
+
+    if(req.headers.authorization != null){
+
+        var token = 'Bearer '+req.headers.authorization;
+
+        requestify.request(constant.USER_CART,{
+            method: 'POST',
+            headers:{
+                'content-type' : 'application/json; charset=utf-8',
+                'authorization' : token
+            }
+        }).then(function(response) {
+                    var id = '';
+                    if(response.body.id == null)
+                        id = response.body;
+                    else
+                        id = response.body.id;  
+
+                        requestify.request(constant.GET_WISHLIST,{
+                        method: 'GET',
+                        headers:{
+                            'authorization' : token,
+                            'content-type' : 'application/json; charset=utf-8'
+                        }
+                    }).then(function(response) {
+                                res.send(response.body);                            
+                            })
+                    .catch(function(err){
+                        res.send(err.body);
+                    });
+                })
+        .catch(function(err){
+            res.send(err);
+        });
+    }
+
+    else
+        res.send({error : "requires user token"});
+
+  };
+
+
+
+
+
+  exports.updateWishlist = function(req,res){
+
+    if(req.headers.authorization != null){
+
+        var token = 'Bearer '+req.headers.authorization;
+
+        requestify.request(constant.USER_CART,{
+            method: 'POST',
+            headers:{
+                'content-type' : 'application/json; charset=utf-8',
+                'authorization' : token
+            }
+        }).then(function(response) {
+                    var id = '';
+                    if(response.body.id == null)
+                        id = response.body;
+                    else
+                        id = response.body.id;  
+
+                        requestify.request(constant.UPDATE_WISHLIST+req.params.id,{
+                        method: 'DELETE',
+                        headers:{
+                            'authorization' : token,
+                            'content-type' : 'application/json; charset=utf-8'
+                        }
+                    }).then(function(response) {
+                                res.send(response.body);                            
+                            })
+                    .catch(function(err){
+                        res.send(err.body);
+                    });
+                })
+        .catch(function(err){
+            res.send(err);
+        });
+    }
+
+    else
+        res.send({error : "requires user token"});
+
+  };  
+
+
+

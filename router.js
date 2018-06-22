@@ -5,6 +5,7 @@ var productCtrl = require('./controllers/product');
 var categoryCtrl = require('./controllers/category');
 var accountCtrl = require('./controllers/account');
 var userCtrl = require('./controllers/user');
+var promotionCtrl = require('./controllers/promotion');
 
 /************     HOMEPAGE API'S     ********/
 
@@ -79,5 +80,27 @@ apiRouter.route('/user/cart').post(userCtrl.addToCart);
 
 //Get cart items
 apiRouter.route('/user/cart').get(userCtrl.getCart);
+
+//Remove cart item
+apiRouter.route('/user/cart/:id').get(userCtrl.removeCartItem);
+
+//Get order details
+apiRouter.route('/user/order/:id').get(userCtrl.getOrderDetails);
+
+//Add item to wishlist
+apiRouter.route('/user/wishlist/add/:product').get(userCtrl.addToWishlist);
+
+//Get wishlist items
+apiRouter.route('/user/wishlist').get(userCtrl.getWishlist);
+
+//Delete wishlist item
+apiRouter.route('/user/wishlist/delete/:id').get(userCtrl.updateWishlist);
+
+
+
+/****************   PROMOTION API's ***********************/
+
+//Add coupon to cart 
+apiRouter.route('/cart/coupon').post(promotionCtrl.addCouponToCart);
 
 module.exports = apiRouter;
