@@ -8,58 +8,81 @@ _RESPONSE_ `200 OK`
 
 ```
 {  
+   "id":2,
+   "name":"All categories",
    "children_data":[  
-      {  
-         "id":19,
+      { 
+        {  
+         "id":11,
          "parent_id":2,
-         "name":"Collections",
-         "children_data":[      //Subcategories
-            {  
-               "id":5,
-               "parent_id":19,
-               "name":"Instagram"
-            },
-            {  
-               "id":3,
-               "parent_id":19,
-               "name":"Exclusive"
-            }
+         "name":"Sandook",
+         "is_active":true,
+         "position":3,
+         "level":2,
+         "product_count":68,
+         "children_data":[  
+
          ]
       },
       {  
-         "id":12,
+         "id":13,
          "parent_id":2,
-         "name":"Campaigns"   //Ignore this category  (Its a campaign)         
-       },
-      {  
-         "id":11,
-         "parent_id":2,
-         "name":"Sandook"
+         "name":"Shoes",
+         "is_active":true,
+         "position":4,
+         "level":2,
+         "product_count":68,
+         "children_data":[  
+
+         ]
       },
       {  
-         "id":10,
+         "id":14,
          "parent_id":2,
-         "name":"Shoes"
+         "name":"Dresses",
+         "is_active":true,
+         "position":5,
+         "level":2,
+         "product_count":68,
+         "children_data":[  
+
+         ]
       },
       {  
-         "id":9,
+         "id":15,
          "parent_id":2,
-         "name":"Lookbooks"
+         "name":"Lookbooks",
+         "is_active":true,
+         "position":6,
+         "level":2,
+         "product_count":68,
+         "children_data":[  
+
+         ]
       },
       {  
-         "id":6,
-         "parent_id":1,
-         "name":"Dresses"
+         "id":16,
+         "parent_id":2,
+         "name":"Tops",
+         "is_active":true,
+         "position":7,
+         "level":2,
+         "product_count":68,
+         "children_data":[  
+
+         ]
       },
       {  
-         "id":7,
+         "id":17,
          "parent_id":2,
-         "name":"Bottoms"
-      },
-      {  
-         "id":8,
-         "parent_id":2,
-         "name":"Tops"
+         "name":"Buttoms",
+         "is_active":true,
+         "position":8,
+         "level":2,
+         "product_count":68,
+         "children_data":[  
+
+         ]
       }
    ]
 }
