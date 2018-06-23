@@ -151,7 +151,7 @@ _REPONSE_ `200 OK`
 
 ### DELETE WISHLIST ITEM
 
-_GET_ `/api//user/wishlist/delete/:id`
+_GET_ `/api/user/wishlist/delete/:id`
 
 - `id` is wishlist_item_id
 
@@ -164,5 +164,36 @@ _RESPONSE_ `200 OK`
         "status": true
     }
 ]
+
+```
+
+
+### NEWSLETTER SUBSCRIPTION
+
+_POST_  `/api/user/newsletter`
+
+_INPUT_
+
+- `Requires Token`
+
+```
+{
+    "email" : "test5@gmail.com",
+    "firstname": "FirstName",
+    "lastname": "LastName"
+}
+
+```
+
+_RESPONSE_ `200 OK`
+
+```
+{
+    "id": 3,
+    "email": "test5@gmail.com",
+    "firstname": "FirstName",
+    "lastname": "LastName"
+    
+}
 
 ```

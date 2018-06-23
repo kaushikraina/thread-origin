@@ -30,6 +30,8 @@ var config = {
     ADD_WISHLIST : MAIN_URL+"http://13.127.81.82/magento/rest/V1/wishlist/add/",
     GET_WISHLIST : MAIN_URL+"http://13.127.81.82/magento/rest/V1/wishlist/items",
     UPDATE_WISHLIST : MAIN_URL+"http://13.127.81.82/magento/rest/V1/wishlist/delete/",
+    NEWSLETTER_SUBSCRIPTION : MAIN_URL+"http://13.127.81.82/magento/rest/V1/customers/me",
+
 }
 
 module.exports = config;

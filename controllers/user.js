@@ -316,3 +316,49 @@ exports.updateWishlist = function(req,res){
 
 
 
+
+  exports.subscribeNews = function(req,res){
+
+    if(req.headers.authorization != null){
+
+        var token = 'Bearer '+req.headers.authorization;
+        requestify.request(constant.NEWSLETTER_SUBSCRIPTION,{
+        method: 'PUT',
+        headers:{
+            'authorization' : token,
+            'content-type' : 'application/json; charset=utf-8'
+        },
+        body : {
+            
+            "customer": 
+            {
+              "email" : req.body.email,
+              "firstname": req.body.firstname,
+              "lastname": req.body.lastname,
+              "store_id": 1,
+              "website_id": 1,
+              "extension_attributes": {
+                "is_subscribed": true
+              }
+
+            }
+          }
+        }).then(function(response) {
+                    res.send(response.body);                            
+                })
+        .catch(function(err){
+            res.send(err.body);
+        });
+    }
+
+    else
+        res.send({error : "requires user token"});
+
+  };  
+
+
+
+
+
+
+

@@ -44,6 +44,11 @@ apiRouter.route('/products/colors').get(productCtrl.getColor);
 //Get all sizes
 apiRouter.route('/products/sizes').get(productCtrl.getSize);
 
+//Currency comversion
+apiRouter.route('/products/conversion').post(productCtrl.currenyConvert);
+
+
+
 
 /************     CATEGORY API'S     ********/
 
@@ -95,6 +100,9 @@ apiRouter.route('/user/wishlist').get(userCtrl.getWishlist);
 
 //Delete wishlist item
 apiRouter.route('/user/wishlist/delete/:id').get(userCtrl.updateWishlist);
+
+//Newsletter Subscription
+apiRouter.route('/user/newsletter').post(userCtrl.subscribeNews);
 
 
 

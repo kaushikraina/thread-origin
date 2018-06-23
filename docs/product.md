@@ -254,3 +254,63 @@ _RESPONSE_ `200 OK`
 }
 
 ```
+
+
+### CURRENCY CONVERSION
+
+_POST_ `/api/products/conversion`
+
+_INPUT_ 
+
+```
+{
+    "currency" : "USD",   // USD,SGD,CNY
+    "sku" : "2"
+
+}
+
+```
+
+_RESPONSE_ `200 OK`
+
+```
+{
+    [  
+            {  
+                "id":1,
+                "sku":"Sasha BodyCon Dress-Extra Small-Black",
+                "name":"Sasha BodyCon Dress-Extra Small-Black",
+                "price":20,     //In US Dollars
+                "custom_attributes":[  
+                    {  
+                        "attribute_code":"size",
+                        "value":"4"
+                    },
+                    {  
+                        "attribute_code":"color",
+                        "value":"9"
+                    }
+                ]
+            },
+            {  
+                "id":2,
+                "sku":"Sasha BodyCon Dress-Extra Small-White",
+                "name":"Sasha BodyCon Dress-Extra Small-White",
+                "price":20,
+                "custom_attributes":[  
+                    {  
+                        "attribute_code":"size",
+                        "value":"4"
+                    },
+                    {  
+                        "attribute_code":"color",
+                        "value":"10"
+                    }
+                ]
+            },
+
+            ..... //Other variants
+      ]
+}
+
+```
