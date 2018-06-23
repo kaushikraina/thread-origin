@@ -18,6 +18,8 @@ apiRouter.route('/homepage/camp1').get(homepageCtrl.getCamp1);
 //Get homepage campaign 2
 apiRouter.route('/homepage/camp2').get(homepageCtrl.getCamp2);
 
+//Get instagram feed
+apiRouter.route('/homepage/instafeed').get(homepageCtrl.instaFeed);
 
 
 /************     MEDIA API'S     ********/

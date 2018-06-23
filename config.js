@@ -4,6 +4,7 @@ var config = {
 
     ADMIN_USERNAME : 'backend',
     ADMIN_PASSWORD : 'qwerty123',
+    INSTAGRAM_ACCESS_TOKEN : '8006095402.8a540c5.df7cf68e50b241c39ea3dd6463452527',
     MEDIA_BASE_URL : MAIN_URL+'/magento/pub/media/catalog/product/',
     EXCLUSIVE_URL : MAIN_URL+"/magento/rest/V1/products?searchCriteria[filter_groups][0][filters][0][field]=category_id&searchCriteria[filter_groups][0][filters][0][value]=4&searchCriteria[filter_groups][1][filters][0][field]=type_id&searchCriteria[filter_groups][1][filters][0][value]=configurable",
     ADMIN_URL : MAIN_URL+'/magento/rest/V1/integration/admin/token',

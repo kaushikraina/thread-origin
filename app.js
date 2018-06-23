@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var api = require('./router');
 var app = express();
-var mongoose = require('mongoose');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
