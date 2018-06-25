@@ -1,4 +1,4 @@
-var  MAIN_URL = 'http://13.232.61.17';
+var  MAIN_URL = 'http://13.232.62.17';
 
 var config = {
 
@@ -28,10 +28,10 @@ var config = {
     PRODUCT_SORT_SIZE :  MAIN_URL+"/magento/rest/V1/products?searchCriteria[filterGroups][0][filters][0][field]=size&searchCriteria[filterGroups][0][filters][0][value]=",  
     ADD_COUPON_CODE : MAIN_URL+"/magento/rest/V1/carts/",
     ORDER_DETAILS : MAIN_URL+"/magento/rest/V1/orders?searchCriteria[filter_groups][0][filters][0][field]=customer_id&searchCriteria[filter_groups][0][filters][0][value]=",
-    ADD_WISHLIST : MAIN_URL+"http://13.127.81.82/magento/rest/V1/wishlist/add/",
-    GET_WISHLIST : MAIN_URL+"http://13.127.81.82/magento/rest/V1/wishlist/items",
-    UPDATE_WISHLIST : MAIN_URL+"http://13.127.81.82/magento/rest/V1/wishlist/delete/",
-    NEWSLETTER_SUBSCRIPTION : MAIN_URL+"http://13.127.81.82/magento/rest/V1/customers/me",
+    ADD_WISHLIST : MAIN_URL+"/magento/rest/V1/wishlist/add/",
+    GET_WISHLIST : MAIN_URL+"/magento/rest/V1/wishlist/items",
+    UPDATE_WISHLIST : MAIN_URL+"/magento/rest/V1/wishlist/delete/",
+    NEWSLETTER_SUBSCRIPTION : MAIN_URL+"/magento/rest/V1/customers/me",
 
 }
 

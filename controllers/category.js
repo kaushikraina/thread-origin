@@ -3,6 +3,7 @@ var requestify = require('requestify');
 var constant = require('../config');
 
 exports.getCategories = function(req,res){
+    //console.log('Cat');
     requestify.request(constant.ADMIN_URL,{
         method: 'POST',
         body:{
@@ -15,6 +16,7 @@ exports.getCategories = function(req,res){
             'content-type' : 'application/json; charset=utf-8'
         }
     }).then(function(response) {
+                //console.log(response);
                 var token = response.body.replace(/"/g,'');
                 requestify.request(constant.CATEGORIES_URL,{
                     method: 'GET',
