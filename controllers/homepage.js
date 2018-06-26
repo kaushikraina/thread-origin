@@ -108,6 +108,39 @@ exports.getCamp1 = function(req,res){
   }; 
 
 
+exports.getCamp3 = function(req,res){
+    requestify.request(constant.ADMIN_URL,{
+        method: 'POST',
+        body:{
+                
+                "username" : constant.ADMIN_USERNAME,
+	            "password" : constant.ADMIN_PASSWORD
+        
+        },
+        headers:{
+            'content-type' : 'application/json; charset=utf-8'
+        }
+    }).then(function(response) {
+                var token = response.body.replace(/"/g,'');
+                requestify.request(constant.HOME_CAMP_3,{
+                    method: 'GET',
+                    headers:{
+                        'authorization' : 'Bearer '+token,
+                        'content-type' : 'application/json; charset=utf-8'
+                    }
+                }).then(function(response) {
+                            res.send(response.body);                            
+                        })
+                .catch(function(err){
+                    res.send(err);
+                });
+            })
+    .catch(function(err){
+        res.send(err);
+    });
+  }; 
+
+
 exports.instaFeed = function(req,res){
 
     Instagram.use({ access_token: '8006095402.8a540c5.df7cf68e50b241c39ea3dd6463452527' });

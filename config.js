@@ -12,6 +12,7 @@ var config = {
     CATEGORIES_URL : MAIN_URL+'/magento/rest/V1/categories',
     HOME_CAMP_1 : MAIN_URL+"/magento/rest/V1/products?searchCriteria[filter_groups][1][filters][0][field]=sku&searchCriteria[filter_groups][1][filters][0][value]=camp1",
     HOME_CAMP_2 : MAIN_URL+"/magento/rest/V1/products?searchCriteria[filter_groups][1][filters][0][field]=sku&searchCriteria[filter_groups][1][filters][0][value]=hcamp2",
+    HOME_CAMP_3 : MAIN_URL+"/magento/rest/V1/products?searchCriteria[filter_groups][1][filters][0][field]=sku&searchCriteria[filter_groups][1][filters][0][value]=hcamp3",
     CATEGORY_CAMP_1 : MAIN_URL+"/magento/rest/V1/products?searchCriteria[filter_groups][1][filters][0][field]=sku&searchCriteria[filter_groups][1][filters][0][value]=catcamp1",
     SEARCH_PRODUCT :  MAIN_URL+"/magento/rest/V1/products?searchCriteria[filter_groups][1][filters][0][field]=category_id&searchCriteria[filter_groups][1][filters][0][value]=",
     CONFIGURABLE_PRODUCTS : "&searchCriteria[filter_groups][1][filters][0][field]=type_id&searchCriteria[filter_groups][1][filters][0][value]=configurable",
@@ -32,6 +33,8 @@ var config = {
     GET_WISHLIST : MAIN_URL+"/magento/rest/V1/wishlist/items",
     UPDATE_WISHLIST : MAIN_URL+"/magento/rest/V1/wishlist/delete/",
     NEWSLETTER_SUBSCRIPTION : MAIN_URL+"/magento/rest/V1/customers/me",
+    EXCHANGE_RATES : "https://openexchangerates.org/api/latest.json?app_id=4476b968150942948ae41d58196196ce&symbols=INR,SGD,CNY,AED,GBP,EUR,AUD,CAD,USD",
+    GEO_IP : "http://ip-api.com/json/",
 
 }
 

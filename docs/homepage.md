@@ -32,7 +32,7 @@ _RESPONSE_  `200 OK`
 
 _GET_  `/api/homepage/camp1`      
 
-- Replace `camp1` with `camp2` to get campaign 2
+- Replace `camp1` with `camp2` or `camp3` to get campaign 2 or 3
 
 _RESPONSE_  `200 OK`
 
