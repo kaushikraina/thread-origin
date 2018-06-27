@@ -22,7 +22,6 @@ _INPUT_
 
 ```
 
-
 _RESPONSE_ `200 OK`
 
 ```
@@ -106,9 +105,13 @@ true
 
 ### ADD WISHLIST ITEM
 
+
 _GET_  `/api/user/wishlist/add/:product`
 
+
 - `product` is product id
+
+- `user token needed`
 
 _RESPONSE_ `200 OK`
 
@@ -127,6 +130,8 @@ _RESPONSE_ `200 OK`
 ### GET WISHLIST
 
 _GET_ `/api/user/wishlist`
+
+- `user token needed`
 
 _REPONSE_ `200 OK`
 
@@ -154,6 +159,8 @@ _REPONSE_ `200 OK`
 _GET_ `/api/user/wishlist/delete/:id`
 
 - `id` is wishlist_item_id
+
+- `user token needed`
 
 _RESPONSE_ `200 OK`
 

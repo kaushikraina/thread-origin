@@ -39,4 +39,4 @@ exports.addCouponToCart = function(req,res){
     else
         res.send({error : "requires user token"});
 
-  };
+};

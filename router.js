@@ -6,6 +6,9 @@ var categoryCtrl = require('./controllers/category');
 var accountCtrl = require('./controllers/account');
 var userCtrl = require('./controllers/user');
 var promotionCtrl = require('./controllers/promotion');
+var guestCtrl = require('./controllers/guest');
+
+
 
 /************     HOMEPAGE API'S     ********/
 
@@ -49,8 +52,14 @@ apiRouter.route('/products/colors').get(productCtrl.getColor);
 //Get all sizes
 apiRouter.route('/products/sizes').get(productCtrl.getSize);
 
+//Quicksearch Product
+apiRouter.route('/product/find/:search').get(productCtrl.searchProduct);
+
 //Currency comversion
 apiRouter.route('/products/conversion').post(productCtrl.currenyConvert);
+
+//All details
+apiRouter.route('/products/info/:category').get(productCtrl.allProductDetails);
 
 
 
@@ -115,5 +124,22 @@ apiRouter.route('/user/newsletter').post(userCtrl.subscribeNews);
 
 //Add coupon to cart 
 apiRouter.route('/cart/coupon').post(promotionCtrl.addCouponToCart);
+
+
+/**************      GUEST CHECKOUT API's    ****************/
+
+//Create empty guest cart
+apiRouter.route('/guest').get(guestCtrl.createEmptyCart);
+
+//Add item to cart
+apiRouter.route('/guest/cart/:id').post(guestCtrl.addToCart);
+
+//Get cart items
+apiRouter.route('/guest/:id').get(guestCtrl.getCart);
+
+//Update Cart item
+apiRouter.route('/guest/update').post(guestCtrl.updateCartItem);
+
+
 
 module.exports = apiRouter;
