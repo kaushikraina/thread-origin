@@ -355,15 +355,14 @@ exports.allProductDetails  = async function(req,res){
                     }
                 });               
     
-    let data_products = await JSON.parse(response.body);  //Stores all the products
-   
+    let data_products = await JSON.parse(response.body);  //Stores all the products   
     let res_ = await getAllDetails(data_products,token);      
     let data_colors = await getpColors(token);
     let data_sizes = await getpSizes(token); 
     await result['Products'].push(res_);
     await result['Products'].push(data_colors); 
     await result['Products'].push(data_sizes); 
-    await res.send(res_);
+    await res.send(result);
     
     }
     catch(err){
@@ -371,7 +370,7 @@ exports.allProductDetails  = async function(req,res){
     }              
   };  
 
-  async function getAllDetails(data_products,token){
+async function getAllDetails(data_products,token){
 
     var result = {};
     var data_variants;
@@ -381,26 +380,25 @@ exports.allProductDetails  = async function(req,res){
         
     for(var a=0; a < data_products.items.length;a++){
         data_variants = await getVariants(data_products.items[a].sku,token); //variants of a product
-        //for(var b = 0; b<data_variants.length; b++ ){
-          // variant_info = await getVariantInfo(data_variants[b].sku,token); //Variant info
-           console.log("Variant",data_variants.length);
-        //}
-        // var item = {};
-        // item['name'] = data_products.items[a].name;
-        // item['sku'] = data_products.items[a].sku;
-        // item['custom_attributes'] = data_products.items[a].custom_attributes;
-        // item['variant_info'] = variant_info;
-        // result['Products'].push(item);
-        
+        var item = {};
+        item['name'] = await data_products.items[a].name;
+        item['sku'] = await data_products.items[a].sku;
+        item['custom_attributes'] = await data_products.items[a].custom_attributes;
+        for(var b = 0; b<data_variants.length; b++ ){
+           variant_info = await getVariantInfo(data_variants[b].sku,token); //Variant info
+           item['variant_info'] = await variant_info;  
+        }
+        result['Products'].push(item);     
     }    
-  }
+
+}
   
   catch(err){console.log(err);}
   return result;
 
   }
 
-  async function getVariantInfo(sku,token){
+async function getVariantInfo(sku,token){
    
    let res = await requestify.request(constant.PRODUCT_INFO+sku,{
         method: 'GET',
@@ -409,11 +407,10 @@ exports.allProductDetails  = async function(req,res){
             'content-type' : 'application/json; charset=utf-8'
         }
     });  
-    console.log(res);
     return res.body;
   }
 
-  async function getVariants(sku,token){
+async function getVariants(sku,token){
     //Requesting product variants   
                             
         let res = await requestify.request(constant.PRODUCT_VARIANTS+sku+'/children',{
@@ -424,7 +421,7 @@ exports.allProductDetails  = async function(req,res){
             }
         });
         
-    return res.body;
+    return JSON.parse(res.body);
 }
 
 async function getpColors(token){
@@ -441,13 +438,13 @@ async function getpColors(token){
         }
     }); 
     
+    
+    result['colors'].push(res.body.options);
+
     }
     catch(err){
         console.log(err);
     }
-    
-    result['colors'].push(res.body.options);
-
     return result;
 }
 
