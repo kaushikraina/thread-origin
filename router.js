@@ -9,7 +9,6 @@ var promotionCtrl = require('./controllers/promotion');
 var guestCtrl = require('./controllers/guest');
 
 
-
 /************     HOMEPAGE API'S     ********/
 
 //Get homepage exclusive products
@@ -139,7 +138,5 @@ apiRouter.route('/guest/:id').get(guestCtrl.getCart);
 
 //Update Cart item
 apiRouter.route('/guest/update').post(guestCtrl.updateCartItem);
-
-
 
 module.exports = apiRouter;

@@ -1,21 +1,20 @@
-var  MAIN_URL2 = 'http://13.232.62.17/threadorigin';
-var  MAIN_URL = 'http://13.127.81.82/magento';
+var  MAIN_URL = 'http://13.232.62.17/threadorigin';
+var  MAIN_URL2 = 'http://13.127.81.82/magento';
 
 var config = {
-
-    BASE_URL2 : 'http://13.232.62.17:3000',
-    BASE_URL : 'http://13.127.81.82:3000',
+    BASE_URL : 'http://13.232.62.17:3000',
+    BASE_URL2 : 'http://13.127.81.82:3000',
     ADMIN_USERNAME2 : 'new-admin',
     ADMIN_PASSWORD2 : '!admin123!',
-    ADMIN_USERNAME : 'admin',
-    ADMIN_PASSWORD : 'Qwerty123!@#',
+    ADMIN_USERNAME : 'admin_new',
+    ADMIN_PASSWORD : 'Qwerty123',
     INSTAGRAM_ACCESS_TOKEN : '8006095402.8a540c5.df7cf68e50b241c39ea3dd6463452527',
     MEDIA_BASE_URL : MAIN_URL+'/pub/media/catalog/product/',
     EXCLUSIVE_URL : MAIN_URL+"/rest/V1/products?searchCriteria[filter_groups][0][filters][0][field]=category_id&searchCriteria[filter_groups][0][filters][0][value]=4&searchCriteria[filter_groups][1][filters][0][field]=type_id&searchCriteria[filter_groups][1][filters][0][value]=configurable",
     ADMIN_URL : MAIN_URL+'/rest/V1/integration/admin/token',
     PRODUCT_INFO : MAIN_URL+'/rest/V1/products/',
     CATEGORIES_URL : MAIN_URL+'/rest/V1/categories',
-    HOME_CAMP_1 : MAIN_URL+"/rest/V1/products?searchCriteria[filter_groups][1][filters][0][field]=sku&searchCriteria[filter_groups][1][filters][0][value]=camp1",
+    HOME_CAMP_1 : MAIN_URL+"/rest/V1/products?searchCriteria[filter_groups][1][filters][0][field]=sku&searchCriteria[filter_groups][1][filters][0][value]=hcamp1",
     HOME_CAMP_2 : MAIN_URL+"/rest/V1/products?searchCriteria[filter_groups][1][filters][0][field]=sku&searchCriteria[filter_groups][1][filters][0][value]=hcamp2",
     HOME_CAMP_3 : MAIN_URL+"/rest/V1/products?searchCriteria[filter_groups][1][filters][0][field]=sku&searchCriteria[filter_groups][1][filters][0][value]=hcamp3",
     CATEGORY_CAMP_1 : MAIN_URL+"/rest/V1/products?searchCriteria[filter_groups][1][filters][0][field]=sku&searchCriteria[filter_groups][1][filters][0][value]=catcamp1",
@@ -47,5 +46,4 @@ var config = {
     GUEST_CART : MAIN_URL+"/rest/V1/guest-carts",
     GUEST_ADD_ITEM : MAIN_URL + "/rest/V1/guest-carts/",
 }
-
 module.exports = config;
